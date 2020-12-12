@@ -1,0 +1,68 @@
+<!--<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>组件</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+<div id="app">11111</div>
+
+<script>
+    var login = {
+        template: '<h1>登陆组件</h1>'
+    }
+    var vm = new Vue({
+        el: '#app',
+        data: {},
+        methods: {},
+        render: c => c(login)
+    });
+</script>
+</body>
+</html>-->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>组件</title>
+  <script src="vue.js"></script>
+</head>
+<body>
+<div  id="app1">
+  {{message}}
+</div>
+
+<div id="app2">
+  {{message}}
+</div>
+
+<script>
+  var vue1=new Vue({
+    el: '#app1',
+    data() {
+      return {
+        message: "This is Vue1"
+      }
+    }
+  });
+
+  var vue2 = new Vue({
+    el: '#app2',
+    data() {
+      return {
+        message: "This is Vue2"
+      }
+    }
+  });
+
+</script>
+</body>
+</html>
+
+
+
+
+

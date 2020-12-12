@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <h3>v-model基本用法</h3>
+    <input type="text" v-model="msg">
+    <!-- HTML默认再多空格也只显示一个空格,因此我们在输入框中输入很多空格再输入内容时，下面显示的也看不出来空格-->
+    <p>{{msg}}</p>
+    <!-- 被包围在 pre 元素中的文本通常会保留空格和换行符。 这时在输入框中输入很多空格再输入内容时，空格都显示-->
+    <pre><p>{{msg}}</p></pre>
+
+    <h3>v-model修饰符</h3>
+
+    <h4>v-model.lazy</h4>
+    <p>只有在input输入框发生一个blur事件（失去焦点）时才触发，enter键也可以让输入框失去焦点</p>
+    <input type="text" v-model.lazy="msg1">
+    <p>{{msg1}}</p>
+
+    <h4>v-model.trim</h4>
+    <p>将用户输入的前后的空格去掉</p>
+    <input type="text" v-model.trim="msg2">
+    <p>{{msg2}}</p>
+
+    <h4>v-model.number</h4>
+    <p>默认输入的数字是字符串类型的;使用v-model.number，当输入数字时，将字符串转换成number类型</p>
+    <input type="text" v-model.number="msg3">
+    <p>{{msg3}}</p>
+</div>
+<script>
+    var vm = new Vue({
+        el: '#app',
+        data: {
+            msg: '数据双向绑定',
+            msg1: '.lazy',
+            msg2: '.trim',
+            msg3: '.number'
+        }
+    });
+</script>
+</body>
+</html>

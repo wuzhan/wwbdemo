@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>组件</title>
+    <script src="../jsTest/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <input type="button" value="获取元素" @click="getElement">
+    <h3 ref="myh3">今天天气很好！！！</h3>
+</div>
+
+<script>
+    var vm = new Vue({
+        el: '#app',
+        data: {},
+        methods: {
+            getElement () {
+                console.log(this.$refs.myh3.innerText);
+            }
+        }
+    });
+</script>
+</body>
+</html>

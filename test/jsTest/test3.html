@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jsTest</title>
+</head>
+<body>
+<input type="button" id="btn" value="执行"/>
+<div class="box"></div>
+
+<script>
+    var btn = document.getElementById("btn");
+    btn.onclick = wz;
+
+    function wz () {
+      debugger
+      for (let i = 0; i < 10; i++) {
+        console.log(i);
+      }
+
+      var txt='';
+      var person={fname:"Bill",lname:"Gates",age:56};
+      for (x in person)  // x 为属性名
+      {
+        txt = txt + person[x] + ";" ;
+      }
+      console.log(txt);
+      console.log(txt.substring(0,txt.length-1));
+    }
+
+</script>
+</body>
+</html>

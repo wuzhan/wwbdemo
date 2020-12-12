@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jsTest</title>
+</head>
+<body>
+<input type="button" id="btn" value="执行"/>
+<div class="box"></div>
+
+<script>
+    var btn = document.getElementById("btn");
+    btn.onclick = myFunction;
+    var myVar;
+    function myFunction() {
+      myVar = setTimeout(alertFunc, 3000);
+    }
+    function alertFunc() {
+      alert("Hello!");
+    }
+</script>
+</body>
+</html>

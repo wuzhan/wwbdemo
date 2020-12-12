@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jsTest</title>
+</head>
+<body>
+<input type="button" id="btn" value="执行"/>
+<div class="box"></div>
+
+<script>
+    var btn = document.getElementById("btn");
+    btn.onclick = function(){
+      var res = "wuzhan";
+      var box = document.querySelector(".box");
+      box.innerHTML = res;
+
+      var p = new Promise(function(resolve, reject){
+        //做一些异步操作
+        setTimeout(function(){
+          console.log('执行完成');
+          resolve('随便什么数据');
+        }, 2000);
+      });
+
+    };
+</script>
+</body>
+</html>

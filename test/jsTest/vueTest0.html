@@ -1,0 +1,29 @@
+
+<!DOCTYPE html>
+<html lang="en" xmlns:v-bind="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script src="vue.js"></script>
+</head>
+<body>
+<div id="app">
+  <!-- v-bind: 是Vue中提供的用于绑定属性的指令 -->
+  <input type="button" value="按钮1" v-bind:title="mytitle"/>
+  <!-- v-bind 中 可以写合法的JS表达式 -->
+  <input type="button" value="按钮2" v-bind:title="mytitle+123" />
+  <!-- v-bind: 指令可以简写为  :要绑定的属性-->
+  <input type="button" value="按钮3" :title="mytitle+'123'" />
+</div>
+
+<script>
+  var vm =new Vue({
+    el: '#app',
+    data: {
+      msg: '好好学习',
+      mytitle: '自己定义的title'
+    }
+  })
+</script>
+</body>
+</html>

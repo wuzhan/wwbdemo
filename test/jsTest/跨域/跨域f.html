@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>淘宝提示词</title>
+</head>
+<body>
+<input type="text" id="keyword" placeholder="请输入关键字"/>
+<input type="button" id="btn" value="查询"/>
+<div class="box"></div>
+
+<script src="myAjax.js"></script>
+<script>
+  var btn = document.getElementById("btn");
+  btn.onclick = function(){
+    var keyWord = document.getElementById("keyword").value;
+    var obj={
+      url:"https://suggest.taobao.com/sug",
+      data:{q:keyWord},
+      success:function(data){
+        var list = "<ul>";
+        for(var i=0; i<data.result.length; i++){
+          var temp = data.result[i];
+          var tempSug = temp[0];
+          list += "<li>"+tempSug+"</li>";
+        }
+        list += "</ul>";
+        var box = document.querySelector(".box");
+        box.innerHTML = list;
+      }
+    };
+    myAjax(obj);
+  };
+</script>
+</body>
+</html>

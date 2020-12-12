@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>路由</title>
+    <script src="vue.js"></script>
+    <!-- 1、安装vue-router路由模块 -->
+    <script src="vue-router.js"></script>
+</head>
+<body>
+<div id="app">
+    <a href="#/login">登陆</a>
+    <a href="#/register">注册</a>
+    <!-- 这是vue-router 提供的元素，将来路由规则匹配到的组件 就会展示到这个router-view中去 -->
+    <!-- 所以，我们可以把 router-view 当做一个占位符 -->
+    <router-view></router-view>
+</div>
+
+<script>
+    // 组件的模板对象
+    var login = {
+        template: '<h1>登陆组件</h1>'
+    };
+
+    var register = {
+        template: '<h1>注册组件</h1>'
+    };
+
+    // 创建一个路由对象,为构造函数传递一个配置对象
+    var routerObj = new VueRouter({
+        // 路由匹配规则  注意这里是route
+        routes: [
+            {path: '/login', component: login},
+            {path: '/register', component: register}
+        ]
+    });
+    var vm = new Vue({
+        el: '#app',
+        data: {},
+        methods: {},
+        // 将路由规则对象，注册到vm实例上，用来监听URL地址的变化，然后展示对应的组件
+        // 注意这里是router
+        router: routerObj
+    });
+</script>
+</body>
+</html>

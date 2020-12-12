@@ -1,0 +1,91 @@
+<!--
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jsTest</title>
+    &lt;!&ndash;1.导入Vue的包&ndash;&gt;
+    <script src="vue.js"></script>
+</head>
+<body>
+
+  <div id="app1">
+    <input type="text" v-model="firstName">
+    <input type="text" v-model="lastName">
+    <input type="text" v-model="fullName">
+  </div>
+
+
+<script>
+  let vm = new Vue({
+    el: '#app1',
+    data: {
+      firstName: 'wu',
+      lastName: 'zhan'/*,
+      fullName: ''*/
+    },
+
+    // watch: {
+    //   firstName(newName, oldName) {
+    //     this.fullName = newName + ' ' + this.lastName;
+    //   }
+    // }
+
+  //computed擅长处理的场景：一个数据受多个数据影响，数据不能在data中定义
+    computed:{
+      fullName: function () {
+        return this.firstName + ' ' + this.lastName;
+      }
+    }
+
+  })
+</script>
+</body>
+</html>
+-->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>jsTest</title>
+  <!--1.导入Vue的包-->
+  <script src="vue.js"></script>
+</head>
+<body>
+
+<div id="app1">
+  <input type="text" v-model="firstName">
+  <input type="text" v-model="lastName">
+  <input type="text" v-model="fullName">
+</div>
+
+
+<script>
+  let vm = new Vue({
+    el: '#app1',
+    data: {
+      firstName: 'wu',
+      lastName: 'zhan',
+      fullName: ''
+    },
+
+    //watch擅长处理的场景：一个数据影响多个数据，且数据在data中需要定义
+    watch: {
+      firstName(newName, oldName) {
+        this.fullName = newName + ' ' + this.lastName;
+      }
+    }
+
+    /*computed:{
+      fullName: function () {
+        return this.firstName + ' ' + this.lastName;
+      }
+    }*/
+
+  })
+</script>
+</body>
+</html>
+

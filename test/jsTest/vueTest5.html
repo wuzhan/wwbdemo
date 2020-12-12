@@ -1,0 +1,61 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>query方式传递参数</title>
+    <script src="vue.js"></script>
+    <script src="vue-router.js"></script>
+</head>
+<body>
+<div id="app">
+
+    <!-- 如果在路由中，使用查询字符串，给路由传递参数，则不需要修改 路由匹配的path属性 -->
+    <router-link to="/login?id=10&name=zhang">登陆</router-link>
+    <router-link to="/register">注册</router-link>
+    <router-view></router-view>
+
+</div>
+
+<script>
+
+    // 组件的模板对象
+    var login = {
+        template: '<h1>登陆组件======{{$route.query.id}}======{{$route.query.name}}</h1>',
+        // 组件中的data必须是一个方法，必须返回一个对象
+        data () {
+            return {
+                msg: '123'
+            };
+        },
+        // 组件的生命周期钩子函数
+        created () {
+            console.log(this.$route);
+            console.log(this.$route.query.id);
+            console.log(this.$route.query.name);
+        }
+    };
+
+    var register = {
+        template: '<h1>注册组件</h1>'
+    };
+
+    // 创建一个路由对象,为构造函数传递一个配置对象
+    var router = new VueRouter({
+        // 路由匹配规则  注意这里是route
+        routes: [
+            { path: '/login', component: login },
+            { path: '/register', component: register }
+        ]
+    });
+
+    var app = new Vue({
+        el: '#app',
+        data: {},
+        methods: {},
+        // router: router
+        router
+    })
+</script>
+</body>
+</html>

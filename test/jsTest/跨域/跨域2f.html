@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>百度提示词</title>
+</head>
+<body>
+<input type="text" id="keyword" placeholder="请输入关键字"/>
+<input type="button" id="btn" value="查询"/>
+<div class="box"></div>
+
+<script src="myAjax.js"></script>
+<script>
+  var btn = document.getElementById("btn");
+  btn.onclick = function(){
+    var keyWord = document.getElementById("keyword").value;
+    var obj={
+      url:"https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su",
+      data:{wd:keyWord},
+      jsonp:"cb",
+      success:function(data){
+        var list = "<ul>";
+        for(var i=0; i<data.s.length; i++){
+          var temp = data.s[i];
+          list += "<li>"+temp+"</li>";
+        }
+        list += "</ul>";
+        var box = document.querySelector(".box");
+        box.innerHTML = list;
+      }
+    };
+    myAjax(obj);
+  };
+</script>
+</body>
+</html>
