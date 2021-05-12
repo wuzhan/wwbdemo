@@ -12,6 +12,8 @@ new Vue({
   el: '#app',
   router,
   store,
+  // components 是声明有哪些组件
+  // template 是使用哪个组件
   components: { App },
   template: '<App/>'
 })
